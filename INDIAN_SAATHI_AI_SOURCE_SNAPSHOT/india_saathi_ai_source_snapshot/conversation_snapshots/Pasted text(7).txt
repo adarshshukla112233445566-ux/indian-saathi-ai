@@ -1,0 +1,957 @@
+IMPORTANT — THIS IS AN IMPLEMENTATION TASK, NOT A DESIGN DESCRIPTION.
+
+I want you to BUILD and COMPLETE the actual working authentication system and login page for my existing project:
+
+INDIAN SAATHI AI
+
+I have provided a reference screenshot.
+
+THE LOGIN PAGE MUST LOOK VERY CLOSE TO THE PROVIDED SCREENSHOT.
+
+But this must NOT be a static UI/mockup.
+
+EVERY IMPORTANT INTERACTION MUST ACTUALLY WORK.
+
+Do not just generate a project summary.
+Do not explain what you are going to build.
+Do not give me a checklist instead of implementation.
+
+INSPECT THE EXISTING PROJECT FIRST, THEN IMPLEMENT THE FEATURES DIRECTLY.
+
+========================================================
+A. PRIMARY GOAL
+========================================================
+
+Build a production-quality authentication experience for INDIAN SAATHI AI.
+
+The final /login page must visually follow the provided screenshot:
+
+LEFT:
+~58% cinematic India Gate hero section.
+
+RIGHT:
+~42% clean white authentication section.
+
+The result should feel like a premium Indian civic-tech SaaS product.
+
+The screenshot is the PRIMARY VISUAL REFERENCE.
+
+Match:
+- layout
+- proportions
+- spacing
+- typography hierarchy
+- logo placement
+- colors
+- button dimensions
+- input dimensions
+- alignment
+- visual hierarchy
+- overall premium appearance
+
+Do NOT replace this design with a generic login template.
+
+========================================================
+B. IMPORTANT — EXISTING PROJECT
+========================================================
+
+Before changing anything:
+
+1. Inspect the existing project structure.
+2. Inspect the existing authentication system.
+3. Inspect the existing database.
+4. Inspect existing users/roles.
+5. Inspect existing routes.
+6. Inspect existing dashboard pages.
+7. Inspect existing logo/assets.
+8. Inspect existing design system/components.
+
+DO NOT create a second authentication system if one already exists.
+
+DO NOT create duplicate databases.
+
+DO NOT break existing dashboard functionality.
+
+Reuse existing infrastructure wherever possible.
+
+If an existing implementation is incomplete, repair it instead of creating unrelated duplicate code.
+
+========================================================
+C. EXACT LOGIN VISUAL DESIGN
+========================================================
+
+Create:
+
+/login
+
+Full viewport.
+
+Desktop layout:
+
+LEFT PANEL = approximately 58%
+
+RIGHT PANEL = approximately 42%
+
+No unnecessary scrollbar on desktop.
+
+--------------------------------------------------------
+LEFT PANEL
+--------------------------------------------------------
+
+Use a high-quality cinematic India Gate at sunset background.
+
+Visual characteristics:
+
+- India Gate
+- sunset
+- warm orange/golden light
+- dark navy/blue atmosphere
+- road perspective
+- premium photography
+- realistic appearance
+
+Use a subtle dark overlay so text remains readable.
+
+DO NOT use a cartoon illustration.
+
+DO NOT make it look like an AI-generated generic travel poster.
+
+--------------------------------------------------------
+OFFICIAL LOGO
+--------------------------------------------------------
+
+Use the official INDIAN SAATHI AI logo asset that I provided.
+
+THIS LOGO IS THE SOURCE OF TRUTH.
+
+Do NOT redesign it.
+
+Do NOT generate another logo.
+
+Do NOT modify its symbol.
+
+Do NOT distort it.
+
+Do NOT replace it with a text-only logo.
+
+Place it near the top-left of the hero panel.
+
+--------------------------------------------------------
+HERO TEXT
+--------------------------------------------------------
+
+Display:
+
+"Your AI-powered Saathi
+for a Smarter India"
+
+Style "Smarter India" using subtle Indian-inspired accents:
+
+Smarter = saffron/orange accent
+
+India = green accent
+
+Below:
+
+"Report civic problems, find the right resolver,
+track progress, and stay connected with
+essential services — all from one platform."
+
+--------------------------------------------------------
+FEATURES
+--------------------------------------------------------
+
+Display three feature rows:
+
+1.
+AI icon
+"AI-powered civic assistance"
+
+2.
+Routing/network icon
+"Smart complaint routing"
+
+3.
+Shield/emergency icon
+"Emergency & essential services"
+
+Icon containers should visually resemble the reference.
+
+Use:
+Blue → AI
+Green → routing
+Orange → emergency
+
+--------------------------------------------------------
+TRICOLOR WAVE
+--------------------------------------------------------
+
+At the bottom of the hero section add an elegant Indian tricolor wave:
+
+Saffron
+White
+Green
+
+Keep it subtle.
+
+--------------------------------------------------------
+BOTTOM BADGE
+--------------------------------------------------------
+
+Add a dark translucent horizontal strip near the bottom.
+
+Text:
+
+"A cleaner • Safer • More connected India, together with AI"
+
+Add a small community/people icon.
+
+--------------------------------------------------------
+RIGHT SIDE
+--------------------------------------------------------
+
+White background.
+
+At the top-right:
+
+🌐 English | हिन्दी | मराठी
+
+English active.
+
+Language switcher must actually change the login UI.
+
+Supported languages:
+English
+Hindi
+Marathi
+
+Do not hardcode separate pages for languages.
+
+Use one centralized translation system.
+
+--------------------------------------------------------
+LOGIN CONTENT
+--------------------------------------------------------
+
+Center the authentication content vertically.
+
+Show official INDIAN SAATHI AI logo.
+
+Then:
+
+"Welcome back"
+
+Subtitle:
+
+"Sign in to continue to Indian Saathi AI"
+
+--------------------------------------------------------
+EMAIL
+--------------------------------------------------------
+
+Label:
+
+Email address
+
+Placeholder:
+
+Enter your email address
+
+Add mail icon.
+
+Requirements:
+
+- required validation
+- valid email validation
+- accessible label
+- focus state
+- error state
+- disabled state
+- loading state
+
+--------------------------------------------------------
+PASSWORD
+--------------------------------------------------------
+
+Label:
+
+Password
+
+Placeholder:
+
+Enter your password
+
+Add lock icon.
+
+Add eye/eye-off button.
+
+Password visibility MUST WORK.
+
+Do not fake this interaction.
+
+--------------------------------------------------------
+REMEMBER ME
+--------------------------------------------------------
+
+Create:
+
+☐ Remember me
+
+Right side:
+
+Forgot password?
+
+Forgot password must navigate to:
+
+/forgot-password
+
+--------------------------------------------------------
+SIGN IN
+--------------------------------------------------------
+
+Large full-width blue button:
+
+"Sign In   →"
+
+Click behavior:
+
+1. Validate email.
+2. Validate password.
+3. Disable button while submitting.
+4. Show loading indicator.
+5. Authenticate against the REAL authentication backend.
+6. Handle success.
+7. Handle incorrect credentials.
+8. Handle network errors.
+9. Handle server errors.
+10. Create/persist authenticated session.
+11. Determine authenticated user's role.
+12. Redirect to the correct dashboard.
+
+NO FAKE LOGIN.
+
+NO localStorage-only authentication.
+
+NO hardcoded password checking.
+
+========================================================
+D. ROLE BASED AUTHENTICATION
+========================================================
+
+The system must support:
+
+CITIZEN
+OFFICER
+ADMIN
+
+After successful authentication:
+
+CITIZEN
+→ /dashboard
+
+OFFICER
+→ /officer/dashboard
+
+ADMIN
+→ /admin/dashboard
+
+The role must come from the real database/authentication system.
+
+Never trust a role supplied by the browser.
+
+Never allow:
+
+Citizen → Admin dashboard
+Citizen → Officer dashboard
+Officer → Admin dashboard
+
+Protected routes must enforce authorization.
+
+If the project uses Supabase/Lovable Cloud authentication and role tables, follow the existing architecture.
+
+Roles must NOT simply be stored as an editable field in the frontend profile.
+
+========================================================
+E. SESSION MANAGEMENT
+========================================================
+
+Implement real session handling.
+
+Requirements:
+
+- persistent login session
+- refresh session when supported
+- logout
+- session expiry handling
+- authenticated route protection
+- unauthenticated route protection
+- redirect to /login when necessary
+- prevent redirect loops
+- restore session after page refresh
+
+Test:
+
+Login
+→ refresh browser
+→ user remains authenticated.
+
+Logout
+→ protected pages become inaccessible.
+
+========================================================
+F. REGISTER
+========================================================
+
+Create:
+
+/register
+
+Use the same visual design language.
+
+Registration must actually create a real account.
+
+Fields:
+
+- Full name
+- Email
+- Password
+- Confirm password
+- Preferred language
+
+Validate:
+
+- required fields
+- email
+- password strength
+- password confirmation
+- duplicate email
+
+After successful registration:
+
+- create authentication account
+- create profile
+- default role = CITIZEN
+- persist language preference
+- handle email verification if enabled
+
+Do NOT allow public users to register themselves as ADMIN or OFFICER.
+
+========================================================
+G. FORGOT PASSWORD
+========================================================
+
+Create:
+
+/forgot-password
+
+User enters email.
+
+Use the REAL password reset system.
+
+Do not fake password reset.
+
+Handle:
+
+- valid email
+- invalid email
+- unknown account
+- network failure
+- email delivery unavailable
+
+Show honest messages.
+
+========================================================
+H. GOOGLE LOGIN
+========================================================
+
+Display:
+
+"Continue with Google"
+
+Use real OAuth if Google credentials are configured.
+
+If OAuth is not configured:
+
+DO NOT fake a successful login.
+
+Show a clear message such as:
+
+"Google sign-in is currently unavailable."
+
+Do not create fake Google authentication.
+
+========================================================
+I. DEMO ACCESS
+========================================================
+
+Create a working Demo Access section.
+
+Text:
+
+"Demo Access"
+
+"Try the platform with a demo account"
+
+Provide:
+
+Citizen Demo
+Officer Demo
+Admin Demo
+
+Demo accounts must use the same authentication/session architecture as the real system where possible.
+
+Demo data must clearly be marked:
+
+SAMPLE DATA / DEMO DATA
+
+Demo users must NOT expose production administrative credentials.
+
+If demo credentials already exist, reuse them.
+
+If they don't exist, create safe seeded demo users through the supported backend/database mechanism.
+
+========================================================
+J. AUTHENTICATION ERROR HANDLING
+========================================================
+
+Handle all of these:
+
+Empty email
+Invalid email
+Empty password
+Incorrect password
+Account not found
+Account disabled
+Email not verified
+Network failure
+Authentication server failure
+Expired session
+Rate limit
+Google unavailable
+Password reset unavailable
+
+Never display raw backend/database errors.
+
+Show useful human-readable messages.
+
+========================================================
+K. SECURITY
+========================================================
+
+Implement secure authentication.
+
+DO NOT:
+
+- store plaintext passwords
+- store passwords in localStorage
+- implement fake auth
+- expose service-role credentials in frontend
+- expose secret API keys
+- trust frontend roles
+- bypass protected routes
+- expose private database records
+
+If using Supabase/Lovable Cloud:
+
+- use proper authentication
+- use Row Level Security where applicable
+- keep privileged keys server-side
+- use server-side role verification
+- ensure users can only access data they are authorized to access
+
+========================================================
+L. RESPONSIVE DESIGN
+========================================================
+
+Desktop should closely match the screenshot.
+
+Tablet:
+Maintain the premium layout while adapting widths.
+
+Mobile:
+Use a single-column layout.
+
+Mobile priority:
+
+1. Logo
+2. Welcome back
+3. Login form
+4. Demo access
+5. Create account
+
+Hero image may become a compact top hero.
+
+No horizontal scrolling.
+
+Inputs must remain usable.
+
+Buttons must remain touch friendly.
+
+========================================================
+M. LANGUAGE SYSTEM
+========================================================
+
+Languages:
+
+English
+Hindi
+Marathi
+
+The language selector must actually work.
+
+Example:
+
+English:
+"Welcome back"
+
+Hindi:
+"वापसी पर स्वागत है"
+
+Marathi:
+"पुन्हा स्वागत आहे"
+
+Translate:
+
+- headings
+- labels
+- placeholders
+- buttons
+- errors
+- forgot password
+- create account
+- demo access
+- authentication messages
+
+Use one centralized translation dictionary.
+
+Do not duplicate entire pages.
+
+Persist user's selected language.
+
+========================================================
+N. VISUAL QUALITY
+========================================================
+
+The login page must look like a real startup product.
+
+Use:
+
+- clean typography
+- professional blue CTA
+- deep navy text
+- white background
+- subtle borders
+- restrained shadows
+- Indian saffron/green accents
+- consistent spacing
+
+Avoid:
+
+- excessive glassmorphism
+- neon colors
+- huge rounded cards
+- excessive gradients
+- generic AI robot graphics
+- random illustrations
+- cheap dashboard templates
+- unnecessary animations
+
+The provided screenshot should remain the visual benchmark.
+
+========================================================
+O. MICRO INTERACTIONS
+========================================================
+
+Implement subtle:
+
+- input focus
+- button hover
+- button press
+- loading animation
+- password toggle
+- error transitions
+- language switch
+- demo access hover
+
+Animations should be fast and professional.
+
+Do not over-animate.
+
+========================================================
+P. ACCESSIBILITY
+========================================================
+
+Implement:
+
+- semantic HTML
+- labels connected to inputs
+- keyboard navigation
+- visible focus states
+- accessible password toggle
+- accessible error messages
+- proper button states
+- sufficient contrast
+- screen-reader-friendly structure
+
+========================================================
+Q. DO NOT BREAK EXISTING APP
+========================================================
+
+This is extremely important.
+
+The project already contains INDIAN SAATHI AI functionality.
+
+DO NOT:
+
+- delete existing dashboard
+- delete existing complaint system
+- delete existing database tables
+- replace working pages unnecessarily
+- create duplicate routes
+- create duplicate auth systems
+- remove existing features
+
+Only modify what is required.
+
+========================================================
+R. ROUTING
+========================================================
+
+Expected routes:
+
+/login
+/register
+/forgot-password
+
+After login:
+
+/dashboard
+/officer/dashboard
+/admin/dashboard
+
+Ensure route guards work.
+
+If existing route names differ, inspect the project and preserve the existing architecture where possible.
+
+========================================================
+S. REAL END-TO-END TESTING
+========================================================
+
+Do not stop after writing the code.
+
+Actually test the implementation.
+
+TEST 1:
+Open /login.
+
+Verify:
+- no console errors
+- logo loads
+- India Gate image loads
+- layout matches screenshot
+- language selector works
+- inputs work
+
+TEST 2:
+Submit empty form.
+
+Expected:
+Validation errors.
+
+TEST 3:
+Invalid email.
+
+Expected:
+Email validation.
+
+TEST 4:
+Wrong password.
+
+Expected:
+Authentication error.
+
+TEST 5:
+Valid Citizen login.
+
+Expected:
+→ /dashboard
+
+TEST 6:
+Valid Officer login.
+
+Expected:
+→ /officer/dashboard
+
+TEST 7:
+Valid Admin login.
+
+Expected:
+→ /admin/dashboard
+
+TEST 8:
+Refresh after login.
+
+Expected:
+Session remains active.
+
+TEST 9:
+Logout.
+
+Expected:
+Protected route inaccessible.
+
+TEST 10:
+Try citizen accessing admin route.
+
+Expected:
+BLOCKED.
+
+TEST 11:
+Try officer accessing admin route.
+
+Expected:
+BLOCKED.
+
+TEST 12:
+Forgot password.
+
+Expected:
+Real reset flow.
+
+TEST 13:
+Register.
+
+Expected:
+Real account creation.
+
+TEST 14:
+Password visibility.
+
+Expected:
+Works.
+
+TEST 15:
+Demo Access.
+
+Expected:
+Correct demo role dashboard.
+
+TEST 16:
+Mobile viewport.
+
+Expected:
+No overflow and usable UI.
+
+TEST 17:
+Hindi.
+
+Expected:
+Login interface changes language.
+
+TEST 18:
+Marathi.
+
+Expected:
+Login interface changes language.
+
+========================================================
+T. AUTOMATIC BUG-FIX LOOP
+========================================================
+
+If testing reveals any problem:
+
+DO NOT simply report the problem.
+
+FIX THE PROBLEM.
+
+Then test again.
+
+Repeat:
+
+IMPLEMENT
+→ TEST
+→ FIND BUG
+→ FIX BUG
+→ TEST AGAIN
+
+Continue until the authentication flow works correctly.
+
+Check browser console for:
+
+- JavaScript errors
+- failed network requests
+- authentication errors
+- broken imports
+- missing assets
+- routing errors
+
+Fix these before finishing.
+
+========================================================
+U. FINAL ACCEPTANCE CRITERIA
+========================================================
+
+I will consider this task complete ONLY when:
+
+✓ /login exists
+✓ Login visually follows the provided screenshot
+✓ Official logo is used
+✓ India Gate hero exists
+✓ Email works
+✓ Password works
+✓ Password visibility works
+✓ Remember me works appropriately
+✓ Forgot password works
+✓ Register works
+✓ Real authentication works
+✓ Session persistence works
+✓ Logout works
+✓ Citizen role works
+✓ Officer role works
+✓ Admin role works
+✓ Protected routes work
+✓ Unauthorized access is blocked
+✓ Demo access works
+✓ Google login is real or honestly marked unavailable
+✓ English works
+✓ Hindi works
+✓ Marathi works
+✓ Responsive mobile layout works
+✓ No major console errors
+✓ No fake authentication
+✓ No fake government connection
+✓ Existing INDIAN SAATHI AI functionality is not broken
+
+========================================================
+FINAL INSTRUCTION
+========================================================
+
+DO NOT RETURN A PROJECT PLAN.
+
+DO NOT JUST EXPLAIN THE CODE.
+
+DO NOT GIVE ME A DESIGN MOCKUP.
+
+DO NOT TELL ME "THIS CAN BE IMPLEMENTED".
+
+ACTUALLY IMPLEMENT IT IN THE EXISTING LOVABLE PROJECT.
+
+Use the provided screenshot as the visual source of truth.
+
+Build the real authentication flow.
+
+Test it.
+
+Fix the bugs you find.
+
+Then verify the final login → role detection → dashboard flow end-to-end.
+
+Only after implementation and testing, give me a SHORT completion summary containing:
+
+1. What was implemented
+2. Which authentication provider is being used
+3. Which demo accounts are available
+4. Any configuration that I personally still need to provide
+5. Any remaining issue that could not honestly be fixed
+
+Never claim something is working if it has not actually been tested.

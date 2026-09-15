@@ -1,0 +1,2010 @@
+BUILD A COMPLETE, FULL-STACK, PRODUCTION-STYLE WEB APPLICATION:
+
+# PRODUCT
+INDIAN SAATHI AI
+
+TAGLINE:
+"One AI-powered platform for a smarter India."
+
+POSITIONING:
+"Report. Understand. Connect. Resolve."
+
+CORE PRINCIPLE:
+INDIAN SAATHI AI does not replace the government.
+It reduces the friction between a citizen's problem and the resolver responsible for addressing it.
+
+==================================================
+1. MOST IMPORTANT REQUIREMENT
+==================================================
+
+Build the COMPLETE WORKING APPLICATION, not a static UI prototype.
+
+Everything must be connected:
+
+Frontend
+→ Backend
+→ Database
+→ Authentication
+→ Authorization
+→ File uploads
+→ AI analysis
+→ Complaint creation
+→ Smart routing
+→ Resolver assignment
+→ Officer actions
+→ Resolution proof
+→ Citizen verification
+→ Escalation
+→ Notifications
+→ Admin analytics
+
+Do NOT create disconnected demo pages.
+
+Do NOT use fake buttons that do nothing.
+
+Every important button must perform a real action or clearly show that the feature is unavailable/configuration-required.
+
+Inspect the existing project first.
+
+If authentication, database, components, logo, styling, or existing pages already exist, REUSE them.
+
+Do not unnecessarily rebuild working functionality.
+
+Preserve existing working features unless they conflict with this specification.
+
+==================================================
+2. PRODUCT ARCHITECTURE
+==================================================
+
+Create one coherent application with three main roles:
+
+1. CITIZEN
+2. RESOLVER / OFFICER
+3. ADMIN
+
+Use proper server-side role-based access control.
+
+A citizen must never be able to access another citizen's complaints.
+
+A resolver must only access complaints assigned to them or explicitly authorized for their resolver organization.
+
+Admin has management and oversight permissions.
+
+Never rely only on frontend role checks.
+
+All important authorization must be enforced on the backend.
+
+==================================================
+3. REQUIRED TECHNICAL ARCHITECTURE
+==================================================
+
+Use a modern maintainable full-stack architecture supported by the current Emergent environment.
+
+Preferred structure:
+
+Frontend:
+- React
+- TypeScript
+- Responsive design
+- Component-based architecture
+
+Backend:
+- Node.js / TypeScript API layer
+- REST or equivalent structured API
+
+Database:
+- PostgreSQL or the project's existing relational database
+
+Authentication:
+- Secure session or token-based authentication
+- Password hashing
+- Protected routes
+- Role-based authorization
+
+File storage:
+- Proper storage abstraction
+- Never store large image binaries directly inside normal database rows unless the existing architecture requires it
+
+AI:
+- Provider abstraction
+- API key through environment variables
+- Never expose AI API keys in frontend code
+
+Maps/geolocation:
+- Provider abstraction
+- Browser geolocation only after explicit user action
+- Manual location fallback
+
+Notifications:
+- Database-backed notification system
+- Provider abstraction for future email/SMS/WhatsApp integrations
+
+Use environment variables for secrets.
+
+Never hardcode API keys.
+
+==================================================
+4. PUBLIC LANDING PAGE
+==================================================
+
+Create a premium Indian civic-tech landing page.
+
+Visual direction:
+
+- Clean white/light interface
+- Deep navy typography
+- Indian tricolor accents used tastefully
+- Modern SaaS/civic-tech design
+- Professional
+- Trustworthy
+- Not cartoonish
+- Not generic AI-template style
+
+Use the official INDIAN SAATHI AI logo asset already provided in the project if available.
+
+Do NOT redesign or replace the official logo.
+
+Landing page sections:
+
+1. Hero
+"Your AI-powered Saathi for a Smarter India"
+
+Supporting text:
+"Report civic problems, understand what to do next, connect with the right resolver, and track progress from one place."
+
+Buttons:
+- Report a Problem
+- Explore Saathi
+
+2. How It Works
+
+PROBLEM
+↓
+AI UNDERSTANDS
+↓
+SMART ROUTING
+↓
+ACTION
+↓
+PROOF
+↓
+CITIZEN VERIFICATION
+↓
+RESOLUTION
+
+3. Features
+
+- AI-powered civic assistance
+- Smart complaint routing
+- Photo-based issue analysis
+- Location intelligence
+- Complaint tracking
+- Emergency assistance
+- Nearby essential services
+- Resolution verification
+- Escalation management
+- Multilingual support
+
+4. Trust / Transparency section
+
+Clearly explain:
+
+"Saathi is a civic assistance layer. It does not claim to be a government department."
+
+Do not claim official government integration unless an actual API exists.
+
+5. Footer
+
+- About
+- Help
+- Privacy
+- Terms
+- Contact
+- Login
+
+==================================================
+5. AUTHENTICATION
+==================================================
+
+Create fully working:
+
+/login
+/register
+/forgot-password
+/reset-password
+
+Login:
+
+- Email
+- Password
+- Remember me
+- Forgot password
+- Sign in
+- Google login integration-ready
+- Demo access
+
+Register:
+
+- Full name
+- Email
+- Phone
+- Password
+- Confirm password
+- Role defaults to CITIZEN
+- Terms/consent checkbox
+
+Validation:
+
+- Required fields
+- Valid email
+- Strong password
+- Duplicate email detection
+- Clear error messages
+- Loading state
+- Success state
+
+Never expose passwords.
+
+Create secure authentication persistence.
+
+Refresh should keep the user authenticated when appropriate.
+
+Logout must actually invalidate the session/token.
+
+==================================================
+6. CITIZEN DASHBOARD
+==================================================
+
+Route:
+
+/dashboard
+
+Sidebar:
+
+- Dashboard
+- Report a Problem
+- My Complaints
+- Nearby Services
+- Explore India
+- Ask Saathi AI
+- Emergency / SOS
+- Settings
+- Help & Support
+- Logout
+
+Header:
+
+- Official logo
+- Current location
+- Notifications
+- Profile
+
+Hero:
+
+"Good Morning, [Citizen Name] 👋"
+
+"How can Saathi help you today?"
+
+Quick actions:
+
+1. Report a Problem
+2. Track Complaint
+3. Nearby Services
+4. Ask Saathi AI
+
+Emergency card:
+
+"Need immediate help?"
+
+Buttons:
+- Call 112
+- Emergency Services
+
+Calling must require confirmation before initiating where appropriate.
+
+Do not pretend Saathi itself is an emergency authority.
+
+==================================================
+7. DASHBOARD STATISTICS
+==================================================
+
+Database-driven statistics:
+
+- Active
+- Pending
+- Resolved
+- Escalated
+
+Clearly define each status.
+
+Never hardcode fake statistics.
+
+Show empty states when the user has no complaints.
+
+Recent activity must come from real complaint/status history.
+
+Notifications must come from the database.
+
+==================================================
+8. REPORT A PROBLEM
+==================================================
+
+Route:
+
+/report
+
+Create a complete multi-step workflow:
+
+STEP 1:
+REPORT
+
+STEP 2:
+REVIEW
+
+STEP 3:
+AI ANALYSIS
+
+STEP 4:
+DUPLICATE CHECK
+
+STEP 5:
+COMPLAINT CREATED
+
+STEP 6:
+TRACK
+
+--------------------------------------------------
+PHOTO
+--------------------------------------------------
+
+Allow:
+
+- JPG
+- JPEG
+- PNG
+- WEBP
+
+Maximum configurable file size.
+
+Provide:
+
+- Drag & drop
+- Browse
+- Camera option where browser supports it
+- Preview
+- Remove
+- Replace
+
+Validate file type and size on both client and server.
+
+Do not trust frontend MIME type alone.
+
+Protect uploaded files.
+
+Remove unnecessary EXIF metadata where technically appropriate.
+
+--------------------------------------------------
+DESCRIPTION
+--------------------------------------------------
+
+Textarea:
+
+"What is the problem?"
+
+Character limit.
+
+Show remaining characters.
+
+Example:
+
+"There is a large pothole near the main road and vehicles are struggling to pass."
+
+--------------------------------------------------
+LOCATION
+--------------------------------------------------
+
+Options:
+
+1. Use Current Location
+2. Enter Location Manually
+
+When current location is selected:
+
+- Ask browser permission only after user action
+- Capture latitude
+- Capture longitude
+- Attempt reverse geocoding
+- Show state
+- City
+- Area
+- Ward where available
+
+Clearly distinguish:
+
+GPS coordinates
+from
+human-readable address.
+
+Allow the citizen to correct the detected location manually.
+
+Never silently collect location.
+
+Store location consent appropriately.
+
+--------------------------------------------------
+CATEGORIES
+--------------------------------------------------
+
+Use these categories:
+
+1. Garbage & Sanitation
+2. Pothole / Road Damage
+3. Streetlight
+4. Water Supply / Leakage
+5. Drainage / Waterlogging
+6. Traffic / Signal
+7. Fallen Tree
+8. Animal Emergency
+9. Public Toilet
+10. Pollution
+11. Public Safety
+12. Electricity Hazard
+13. Footpath / Encroachment
+14. Other
+
+Allow AI to suggest a category.
+
+Citizen must be able to correct the category before final submission.
+
+--------------------------------------------------
+OPTIONAL INFORMATION
+--------------------------------------------------
+
+- Landmark
+- Additional notes
+- Preferred language
+
+==================================================
+9. AI ANALYSIS
+==================================================
+
+After photo + description + location are available, call the configured AI service.
+
+Do NOT fake an AI response when the AI provider is unavailable.
+
+Return structured analysis:
+
+{
+  detected_issue,
+  confidence,
+  category,
+  severity,
+  priority,
+  safety_risk,
+  suggested_resolver_type,
+  reasoning,
+  recommended_next_action
+}
+
+Example:
+
+Detected issue:
+"Road pothole"
+
+Confidence:
+0.91
+
+Category:
+"Pothole / Road Damage"
+
+Severity:
+"HIGH"
+
+Priority:
+82
+
+Safety risk:
+"Potential accident risk"
+
+Suggested resolver:
+"Road / Municipal Maintenance"
+
+Recommended action:
+"Inspect and repair the damaged road section."
+
+IMPORTANT:
+
+AI is a decision-support system, not the final authority.
+
+Show:
+
+"AI suggestion"
+
+and
+
+"Citizen confirmed information"
+
+as separate data.
+
+If confidence is low:
+
+"AI confidence is low. Please verify the issue and category."
+
+If AI fails:
+
+Do NOT block the entire complaint system.
+
+Provide manual fallback:
+
+- Citizen selects category
+- Citizen selects severity
+- Complaint can continue
+- Mark AI analysis as unavailable
+
+Never invent AI output.
+
+==================================================
+10. DUPLICATE COMPLAINT DETECTION
+==================================================
+
+Before creating a new complaint, check recent complaints using:
+
+- Location proximity
+- Category
+- Time window
+- Description similarity where available
+
+If a likely duplicate is found:
+
+Show:
+
+"A similar complaint may already exist nearby."
+
+Display:
+
+- Existing complaint ID
+- Approximate location
+- Category
+- Current status
+
+Options:
+
+1. Support Existing Complaint
+2. Submit as New Complaint
+
+Do not automatically merge complaints without confirmation.
+
+Protect against duplicate submission caused by double-clicking or network retries.
+
+==================================================
+11. COMPLAINT CREATION
+==================================================
+
+Only create the final complaint after validation and confirmation.
+
+Generate a unique complaint ID.
+
+Example format:
+
+INSA-2026-NGP-004281
+
+The ID must be generated server-side and be guaranteed unique.
+
+Store:
+
+- Citizen
+- Description
+- Category
+- Citizen-confirmed category
+- AI analysis
+- Severity
+- Priority
+- Safety risk
+- Location
+- Media
+- Resolver recommendation
+- Status
+- Created timestamp
+- Updated timestamp
+
+Initial status:
+
+SUBMITTED
+
+==================================================
+12. COMPLAINT STATUS LIFECYCLE
+==================================================
+
+Use:
+
+SUBMITTED
+↓
+ROUTED
+↓
+ASSIGNED
+↓
+IN_PROGRESS
+↓
+ACTION_TAKEN
+↓
+AWAITING_VERIFICATION
+↓
+RESOLVED
+↓
+CLOSED
+
+Additional statuses:
+
+REOPENED
+ESCALATED
+REASSIGNMENT_REQUESTED
+NOT_ACCEPTED
+
+Important distinction:
+
+ACTION_TAKEN does NOT mean the complaint is finally resolved.
+
+ACTION_TAKEN:
+Resolver says physical/digital action was performed.
+
+AWAITING_VERIFICATION:
+Citizen must verify.
+
+RESOLVED:
+Citizen confirms that the problem is actually addressed.
+
+CLOSED:
+Final administrative closure.
+
+==================================================
+13. MY COMPLAINTS
+==================================================
+
+Route:
+
+/complaints
+
+Features:
+
+- Search
+- Filter
+- Sort
+- Pagination
+
+Filters:
+
+- Status
+- Category
+- Priority
+- Date
+- Location
+
+Complaint cards show:
+
+- Complaint ID
+- Category
+- Short description
+- Status
+- Priority
+- Date
+- Location
+- Last updated
+
+Click opens:
+
+/complaints/:id
+
+==================================================
+14. COMPLAINT DETAIL PAGE
+==================================================
+
+Show:
+
+1. Complaint ID
+2. Current status
+3. Timeline
+4. Original report
+5. Uploaded evidence
+6. Location
+7. AI analysis
+8. Citizen-confirmed information
+9. Resolver
+10. Action updates
+11. Resolution evidence
+12. Escalation history
+13. Notifications
+14. Feedback
+
+Timeline must be database-backed.
+
+Example:
+
+Submitted
+↓
+AI Analysed
+↓
+Routed
+↓
+Assigned
+↓
+Officer Accepted
+↓
+Work Started
+↓
+Action Taken
+↓
+Awaiting Verification
+↓
+Citizen Verified
+↓
+Resolved
+
+Never fake timeline events.
+
+==================================================
+15. RESOLVER DIRECTORY
+==================================================
+
+Create a database-backed Resolver Directory.
+
+Resolver types may include:
+
+- Government Department
+- Municipal Authority
+- Authorized Service Provider
+- Maintenance Organization
+- Verified NGO / Community Partner
+- Other configured resolver
+
+Do NOT invent real organizations.
+
+Admin must be able to configure resolver records.
+
+Each resolver can have:
+
+- Name
+- Type
+- State
+- City
+- Area/Ward
+- Categories handled
+- Contact information
+- Active/inactive status
+- Verification status
+
+==================================================
+16. SMART ROUTING
+==================================================
+
+Routing must NOT be hardcoded only inside frontend code.
+
+Use database/configuration rules.
+
+Routing can consider:
+
+- Category
+- Location
+- State
+- City
+- Ward
+- Severity
+- Emergency flag
+- Resolver availability
+- Resolver coverage
+
+Example:
+
+Pothole
++
+Nagpur
++
+Ward 12
+
+→ Resolver configured for Road Maintenance in that coverage area.
+
+AI can recommend the resolver type.
+
+The actual resolver assignment must come from configured routing rules.
+
+Clearly separate:
+
+AI recommendation
+from
+system assignment.
+
+==================================================
+17. MULTI-RESOLVER SUPPORT
+==================================================
+
+Some problems may require multiple departments/resolvers.
+
+Example:
+
+Waterlogging may involve:
+
+- Drainage
+- Road
+- Water department
+
+Support:
+
+Primary resolver
++
+Secondary resolver(s)
+
+Track each assignment independently.
+
+Do not overwrite assignment history.
+
+==================================================
+18. OFFICER / RESOLVER DASHBOARD
+==================================================
+
+Routes:
+
+/officer/dashboard
+/officer/complaints
+/officer/complaints/:id
+
+Dashboard:
+
+- Assigned
+- Accepted
+- In Progress
+- Awaiting Verification
+- Reopened
+- Escalated
+- Emergency
+- Overdue where SLA is configured
+
+Priority queue should prioritize:
+
+1. Emergency
+2. Critical
+3. High
+4. Medium
+5. Low
+
+Do not use fake deadlines.
+
+==================================================
+19. OFFICER WORKFLOW
+==================================================
+
+Officer can:
+
+- View assigned complaint
+- Accept
+- Start work
+- Add progress update
+- Request information
+- Mark action taken
+- Upload evidence
+- Add work note
+- Send for citizen verification
+
+Officer cannot directly mark a citizen complaint permanently RESOLVED without following the verification workflow unless admin policy explicitly allows it.
+
+==================================================
+20. ACCEPT / REJECT / REASSIGN
+==================================================
+
+If officer accepts:
+
+ASSIGNED
+→ ACCEPTED / IN_PROGRESS
+
+If officer cannot handle it:
+
+"Request Reassignment"
+
+Required:
+
+- Reason
+- Suggested resolver if known
+
+Track:
+
+Resolver A
+→ Resolver B
+→ Resolver C
+
+Never delete previous assignment history.
+
+If a resolver does not accept within configured policy:
+
+NOT_ACCEPTED
+→ ADMIN ALERT
+→ REASSIGN / ESCALATE
+
+==================================================
+21. ACTION EVIDENCE
+==================================================
+
+When an officer performs action, collect:
+
+- What was done
+- When it was done
+- Where it was done
+- Who performed it
+- Work note
+- Before evidence where available
+- After evidence
+- Optional additional media
+
+Do not claim physical work happened unless a resolver records it.
+
+==================================================
+22. CITIZEN VERIFICATION
+==================================================
+
+After action:
+
+Status:
+
+ACTION_TAKEN
+→
+AWAITING_VERIFICATION
+
+Citizen sees:
+
+"Has this problem been fixed?"
+
+Options:
+
+YES
+NO
+
+YES:
+
+- Complaint becomes RESOLVED
+- Ask rating
+- Optional feedback
+
+NO:
+
+- Require reason
+- Optional new photo
+- Optional description
+- Reopen complaint
+- Preserve previous history
+
+Do NOT delete previous resolution evidence.
+
+==================================================
+23. REOPEN PROTECTION
+==================================================
+
+Prevent abuse.
+
+Store:
+
+- Reopen count
+- Reopen reason
+- Reopen evidence
+- Reopen timestamp
+- Citizen
+- Previous status
+
+If repeated reopen attempts exceed a configurable threshold:
+
+Flag for admin review.
+
+Never silently erase reopen history.
+
+==================================================
+24. ESCALATION
+==================================================
+
+Support:
+
+- Manual escalation
+- Automatic escalation based on configured policy
+- Emergency escalation
+- No-response escalation
+
+Do NOT invent government SLA values.
+
+Use configurable application policies.
+
+Example:
+
+"If no resolver action is recorded within configured policy, create an escalation event."
+
+Escalation must create:
+
+- Complaint
+- Escalation record
+- Notification
+- Audit event
+
+Prevent duplicate escalation jobs.
+
+==================================================
+25. EMERGENCY WORKFLOW
+==================================================
+
+Emergency categories:
+
+- Animal Emergency
+- Electricity Hazard
+- Major Road Hazard
+- Immediate Public Safety Risk
+- Other configured emergencies
+
+Emergency complaints must be visibly prioritized.
+
+Show emergency guidance.
+
+Provide appropriate official emergency contact options where configured.
+
+For India, 112 may be presented as an emergency contact option.
+
+Do not claim Saathi itself provides emergency response.
+
+Emergency complaints should bypass normal low-priority queues where configured.
+
+==================================================
+26. ASK SAATHI AI
+==================================================
+
+Create:
+
+/ask-saathi
+
+AI assistant for civic guidance.
+
+Example questions:
+
+"What should I do if there is a large pothole?"
+
+"Where should I report garbage dumping?"
+
+"What should I do during waterlogging?"
+
+"Which category should I select?"
+
+"How can I track my complaint?"
+
+The AI should use structured application data where necessary.
+
+For emergency/safety questions:
+
+Provide safe guidance and official emergency options.
+
+Do not present AI as a replacement for emergency professionals.
+
+AI must not invent government policies, contacts, or services.
+
+==================================================
+27. NEARBY SERVICES
+==================================================
+
+Create:
+
+/nearby
+
+Show nearby essential services based on user-approved location.
+
+Possible categories:
+
+- Hospitals
+- Police
+- Fire
+- Pharmacies
+- Public Services
+- Emergency Services
+- Transport
+- Other configured services
+
+Use a provider abstraction.
+
+Clearly label whether information is:
+
+LIVE
+or
+DEMO / SAMPLE
+
+Never present fake locations as real.
+
+==================================================
+28. EXPLORE INDIA
+==================================================
+
+Create:
+
+/explore
+
+Allow:
+
+- State selection
+- City selection
+- Civic information
+- Configured services
+- Complaint statistics if actual database data exists
+
+Do not invent real statistics.
+
+Do not imply nationwide government integration unless configured.
+
+==================================================
+29. NOTIFICATIONS
+==================================================
+
+Database-backed notifications.
+
+Events:
+
+- Complaint submitted
+- Complaint routed
+- Complaint assigned
+- Officer accepted
+- Work started
+- Action taken
+- Awaiting verification
+- Complaint resolved
+- Complaint reopened
+- Complaint escalated
+- Reassignment
+- Admin message
+
+Show:
+
+- Read/unread
+- Timestamp
+- Related complaint
+- Click navigation
+
+==================================================
+30. ADMIN COMMAND CENTER
+==================================================
+
+Routes:
+
+/admin/dashboard
+/admin/complaints
+/admin/resolvers
+/admin/routing
+/admin/users
+/admin/escalations
+/admin/analytics
+/admin/audit-logs
+/admin/settings
+
+Dashboard:
+
+- Total complaints
+- Active
+- Pending
+- Resolved
+- Escalated
+- Emergency
+- Average resolution time
+- Reopen rate
+- Citizen satisfaction
+- Resolver workload
+
+ALL values must come from the database.
+
+If no real data exists:
+
+show demo/sample mode clearly.
+
+==================================================
+31. ADMIN FUNCTIONS
+==================================================
+
+Admin can:
+
+- Manage users
+- Manage resolver organizations
+- Verify resolver records
+- Configure routing rules
+- Reassign complaints
+- View escalations
+- View audit logs
+- Configure SLA policies
+- Manage categories
+- Manage service directory
+- Review suspicious complaints
+- Review repeated reopen cases
+- View analytics
+
+Never expose admin functions to citizens.
+
+==================================================
+32. PROFILE / SETTINGS
+==================================================
+
+Route:
+
+/settings
+
+Citizen can update:
+
+- Name
+- Phone
+- Email where allowed
+- Preferred language
+- Notification preferences
+- Location preferences
+
+Include:
+
+- Change password
+- Logout
+- Privacy information
+
+==================================================
+33. LANGUAGE SUPPORT
+==================================================
+
+Prepare architecture for:
+
+- English
+- Hindi
+- Marathi
+
+Do not translate only a few buttons.
+
+Use centralized translation keys.
+
+AI responses should respect the user's selected language where supported.
+
+==================================================
+34. DATABASE MODELS
+==================================================
+
+Create/reuse appropriate database models such as:
+
+User
+Role
+Profile
+ResolverProfile
+ResolverCoverage
+ResolverCategory
+RoutingRule
+Complaint
+ComplaintMedia
+ComplaintLocation
+ComplaintAIAnalysis
+ComplaintStatusHistory
+ComplaintAssignment
+ComplaintProgressUpdate
+ComplaintEvidence
+ComplaintResolution
+ComplaintVerification
+ComplaintEscalation
+Notification
+Feedback
+AuditLog
+ServiceLocation
+SystemSetting
+SLAConfiguration
+
+Use relationships and foreign keys.
+
+Add timestamps.
+
+Use indexes for:
+
+- user ID
+- complaint ID
+- status
+- category
+- location
+- created date
+- resolver ID
+- priority
+
+Do not duplicate data unnecessarily.
+
+==================================================
+35. API REQUIREMENTS
+==================================================
+
+Create clean backend APIs for:
+
+Authentication
+Users
+Complaints
+Complaint media
+AI analysis
+Duplicate detection
+Routing
+Assignments
+Resolver actions
+Status transitions
+Verification
+Reopening
+Escalation
+Notifications
+Services
+Admin
+Analytics
+
+Every endpoint must:
+
+- Validate input
+- Authenticate where required
+- Authorize by role
+- Handle errors
+- Return consistent response structures
+- Avoid leaking sensitive data
+
+==================================================
+36. SECURITY
+==================================================
+
+Implement:
+
+- Password hashing
+- Authentication
+- RBAC
+- Server-side authorization
+- Input validation
+- Output sanitization where required
+- Rate limiting for abuse-prone endpoints
+- Duplicate submission protection
+- Secure file upload validation
+- Protected API routes
+- Secure session/token handling
+- Environment variables for secrets
+- Proper CORS configuration if applicable
+- Security headers where applicable
+- Audit logs for sensitive actions
+
+Do not expose:
+
+- Passwords
+- API keys
+- Private citizen data
+- Internal admin notes
+- Unauthorized complaint information
+
+A citizen must never access another citizen's complaint by changing the URL ID.
+
+Test this explicitly.
+
+==================================================
+37. SPAM / ABUSE PROTECTION
+==================================================
+
+Add basic protection for:
+
+- Repeated complaint submissions
+- Repeated duplicate uploads
+- Excessive AI requests
+- Excessive reopen requests
+- Suspicious activity
+
+Use rate limiting and configurable thresholds.
+
+Do not make legitimate citizens unable to report problems.
+
+==================================================
+38. PRIVACY
+==================================================
+
+Location and uploaded photos may contain sensitive information.
+
+Provide clear consent where appropriate.
+
+Allow users to understand why location is being used.
+
+Do not expose exact citizen location publicly.
+
+Only authorized roles should access private complaint evidence.
+
+==================================================
+39. OFFLINE / LOW NETWORK
+==================================================
+
+For important user actions:
+
+- Detect network failure
+- Prevent accidental duplicate submissions
+- Preserve draft where possible
+- Allow retry
+- Show upload progress
+- Resume/retry failed uploads where technically possible
+
+For field officers:
+
+If network is temporarily unavailable:
+
+- Preserve entered work update locally where safe
+- Allow retry when network returns
+- Prevent duplicate action submission
+
+==================================================
+40. CONCURRENCY / IDEMPOTENCY
+==================================================
+
+Protect against:
+
+- Double-clicking submit
+- Multiple browser tabs
+- Network retries
+- Two officers updating simultaneously
+
+Use:
+
+- Idempotency where appropriate
+- Server-side status transition validation
+- Database transactions
+- Optimistic locking/version checks where useful
+
+Never allow invalid status transitions.
+
+==================================================
+41. AUDIT LOG
+==================================================
+
+Track important actions:
+
+- Login
+- Logout
+- Complaint creation
+- Complaint update
+- Assignment
+- Reassignment
+- Status change
+- Evidence upload
+- Resolution
+- Verification
+- Reopen
+- Escalation
+- Admin changes
+
+Audit entries should contain:
+
+- Actor
+- Action
+- Entity
+- Timestamp
+- Relevant metadata
+
+Do not allow normal users to modify audit history.
+
+==================================================
+42. REAL-TIME UPDATES
+==================================================
+
+If the current stack supports reliable real-time updates:
+
+use WebSockets/SSE/realtime subscriptions.
+
+Otherwise use controlled polling.
+
+Never display fake "live" data.
+
+If polling is used, label the behavior appropriately.
+
+==================================================
+43. LOADING / ERROR / EMPTY STATES
+==================================================
+
+Every major page must handle:
+
+Loading
+Empty
+Error
+Retry
+Success
+Unauthorized
+Not found
+
+Do not leave blank screens.
+
+Buttons must show loading state during network operations.
+
+Prevent multiple submissions.
+
+==================================================
+44. RESPONSIVE DESIGN
+==================================================
+
+Desktop:
+- Sidebar
+- Full dashboard
+
+Tablet:
+- Collapsible navigation
+
+Mobile:
+- Bottom navigation or compact menu
+- Touch-friendly controls
+- Responsive cards
+- Responsive forms
+- Complaint timeline must remain readable
+- Camera upload should work where supported
+
+Test:
+
+- Desktop
+- Tablet
+- Mobile
+
+==================================================
+45. ACCESSIBILITY
+==================================================
+
+Implement:
+
+- Keyboard navigation
+- Visible focus states
+- Semantic HTML
+- Proper labels
+- Accessible forms
+- Alt text
+- Color contrast
+- Do not rely on color alone for status
+- Screen-reader-friendly controls
+
+==================================================
+46. DEMO MODE
+==================================================
+
+Create realistic seed/demo data for:
+
+- Citizen
+- Resolver
+- Admin
+- Complaints
+- Status histories
+- Assignments
+- Notifications
+- Resolver directory
+- Services
+
+Clearly identify demo/sample data.
+
+Provide safe demo accounts if the authentication system supports them.
+
+Never use real people's private data.
+
+==================================================
+47. END-TO-END DEMO FLOW
+==================================================
+
+The application must support this complete test:
+
+Citizen logs in
+↓
+Citizen opens dashboard
+↓
+Citizen clicks Report a Problem
+↓
+Uploads pothole image
+↓
+Enters description
+↓
+Allows location
+↓
+AI analyses report
+↓
+AI suggests category
+↓
+Citizen confirms/corrects
+↓
+Duplicate check runs
+↓
+Complaint is created
+↓
+Unique complaint ID generated
+↓
+Complaint is routed
+↓
+Resolver receives complaint
+↓
+Resolver accepts
+↓
+Resolver starts work
+↓
+Resolver uploads action evidence
+↓
+Complaint moves to ACTION_TAKEN
+↓
+Citizen receives notification
+↓
+Citizen opens complaint
+↓
+Citizen verifies YES
+↓
+Complaint becomes RESOLVED
+↓
+Citizen gives feedback
+↓
+Admin dashboard updates
+
+This entire flow must work using the database.
+
+==================================================
+48. FAILURE TESTING
+==================================================
+
+Test:
+
+- AI unavailable
+- Database error
+- Network failure
+- Invalid image
+- Oversized image
+- GPS denied
+- Duplicate complaint
+- Unauthorized complaint access
+- Wrong role access
+- Invalid status transition
+- Double submit
+- Resolver rejects assignment
+- Resolver reassignment
+- Citizen reopens complaint
+- Escalation
+- Notification failure
+
+The app must fail gracefully.
+
+==================================================
+49. DESIGN QUALITY
+==================================================
+
+Use one consistent visual system.
+
+Do not make every page look like a separate template.
+
+Use:
+
+- Official INDIAN SAATHI AI logo
+- Consistent typography
+- Consistent spacing
+- Consistent cards
+- Consistent buttons
+- Consistent status badges
+- Subtle Indian tricolor accents
+- Professional icons
+- Clean charts
+- Good empty states
+- Good micro-interactions
+
+Avoid:
+
+- excessive gradients
+- cartoon graphics
+- random glassmorphism
+- excessive animations
+- generic AI robot imagery
+- fake government seals
+- fake government logos
+- fake statistics
+
+The application should look like a serious civic-tech startup product.
+
+==================================================
+50. NO FAKE GOVERNMENT INTEGRATION
+==================================================
+
+This rule is CRITICAL.
+
+Do NOT claim:
+
+"Connected to Government of India"
+
+"Official Government Portal"
+
+"Direct Municipal API"
+
+"Live government complaint status"
+
+unless an actual configured integration exists.
+
+Instead use wording such as:
+
+"Resolver"
+
+"Configured Authority"
+
+"Official Channel"
+
+"Government department, where configured"
+
+"Integration-ready"
+
+The architecture must be ready for future official APIs.
+
+==================================================
+51. OFFICIAL CHANNEL CONFIGURATION
+==================================================
+
+Create a configurable structure for official grievance channels.
+
+Admin can configure:
+
+- Organization name
+- Official portal name
+- Official URL
+- Category
+- State
+- City
+- Instructions
+
+Only display verified/configured channels.
+
+Never invent URLs.
+
+==================================================
+52. AI SAFETY / HALLUCINATION CONTROL
+==================================================
+
+AI must not:
+
+- Invent authorities
+- Invent phone numbers
+- Invent government policies
+- Invent complaint IDs
+- Claim an action occurred
+- Claim a government response occurred
+- Claim physical resolution happened
+
+AI outputs must be clearly labelled as AI-generated recommendations.
+
+High-risk categories should show appropriate caution.
+
+==================================================
+53. DATA RETENTION / ACCOUNT DATA
+==================================================
+
+Design the system so account/privacy policies can later support:
+
+- Data export
+- Account deactivation
+- Data retention policies
+- Complaint history retention
+- Media retention
+- Privacy requests
+
+Do not implement destructive deletion that accidentally removes required complaint/audit history.
+
+==================================================
+54. TIMEZONE
+==================================================
+
+Use:
+
+Asia/Kolkata
+
+for application-facing timestamps unless a user-specific timezone is intentionally configured.
+
+Store timestamps consistently in the database.
+
+Display human-readable local times.
+
+==================================================
+55. PERFORMANCE
+==================================================
+
+Use:
+
+- Pagination
+- Database indexes
+- Lazy loading where useful
+- Optimized image handling
+- Efficient API queries
+- Avoid unnecessary API calls
+- Avoid loading every complaint at once
+
+Admin analytics must remain usable with larger datasets.
+
+==================================================
+56. FINAL ROUTE STRUCTURE
+==================================================
+
+Public:
+
+/
+ /login
+ /register
+ /forgot-password
+ /reset-password
+
+Citizen:
+
+/dashboard
+/report
+/complaints
+/complaints/:id
+/nearby
+/explore
+/ask-saathi
+/emergency
+/settings
+/help
+
+Resolver:
+
+/officer/dashboard
+/officer/complaints
+/officer/complaints/:id
+
+Admin:
+
+/admin/dashboard
+/admin/complaints
+/admin/resolvers
+/admin/routing
+/admin/users
+/admin/escalations
+/admin/analytics
+/admin/audit-logs
+/admin/settings
+
+==================================================
+57. FINAL PRODUCT LOGIC
+==================================================
+
+The complete system must represent:
+
+CITIZEN PROBLEM
+↓
+PHOTO + DESCRIPTION + LOCATION
+↓
+AI UNDERSTANDS
+↓
+CATEGORY + CONFIDENCE + SEVERITY + PRIORITY
+↓
+CITIZEN CONFIRMS
+↓
+DUPLICATE CHECK
+↓
+COMPLAINT CREATED
+↓
+SMART ROUTING
+↓
+RESOLVER ASSIGNMENT
+↓
+HUMAN ACTION
+↓
+ACTION EVIDENCE
+↓
+CITIZEN VERIFICATION
+↓
+RESOLVED
+↓
+FEEDBACK
+↓
+ANALYTICS
+
+This is the heart of the application.
+
+==================================================
+58. CRITICAL ACCEPTANCE CRITERIA
+==================================================
+
+The project is NOT considered complete unless:
+
+[ ] Authentication works
+[ ] Registration works
+[ ] Protected routes work
+[ ] RBAC works
+[ ] Citizen dashboard works
+[ ] Report flow works
+[ ] Image upload works
+[ ] Location works with manual fallback
+[ ] AI analysis works when configured
+[ ] AI fallback works when unavailable
+[ ] Citizen can confirm/correct AI result
+[ ] Duplicate detection works
+[ ] Complaint is saved to database
+[ ] Unique complaint ID is generated
+[ ] Complaint timeline is database-backed
+[ ] Smart routing works
+[ ] Resolver assignment works
+[ ] Officer dashboard works
+[ ] Officer can accept complaint
+[ ] Officer can start work
+[ ] Officer can upload action evidence
+[ ] Citizen receives notification
+[ ] Citizen can verify resolution
+[ ] Citizen can reopen complaint
+[ ] Escalation works
+[ ] Admin dashboard works
+[ ] Admin can manage resolvers
+[ ] Admin can configure routing
+[ ] Audit logs work
+[ ] Unauthorized access is blocked
+[ ] Duplicate submission is prevented
+[ ] Loading/error/empty states exist
+[ ] Mobile responsive design works
+[ ] No fake government integrations
+[ ] No fake statistics
+[ ] No fake AI results when provider is unavailable
+[ ] Demo data exists
+[ ] End-to-end demo flow works
+
+==================================================
+59. IMPORTANT IMPLEMENTATION INSTRUCTION
+==================================================
+
+Do not simply generate all pages first and leave backend integration for later.
+
+Build the application as one connected system.
+
+Prioritize functional core workflows over decorative features.
+
+If some external provider requires an API key:
+
+1. Create the integration abstraction.
+2. Read credentials from environment variables.
+3. Provide a clear configuration state.
+4. Provide a safe fallback where appropriate.
+5. Never fake successful external communication.
+
+If an advanced feature cannot be fully activated because credentials/provider access are unavailable, implement the backend-ready architecture and clearly show "Configuration required" rather than pretending it works.
+
+==================================================
+60. FINAL BUILDER TASK
+==================================================
+
+Now inspect the existing project.
+
+Identify the current:
+
+- framework
+- database
+- authentication
+- routes
+- components
+- assets
+- logo
+- environment configuration
+
+Then implement the complete INDIAN SAATHI AI product described above.
+
+Reuse existing working infrastructure.
+
+Create missing database models and migrations.
+
+Create required APIs.
+
+Connect frontend to backend.
+
+Seed demo data.
+
+Implement authentication and RBAC.
+
+Implement the complete complaint lifecycle.
+
+Test the end-to-end citizen → resolver → citizen verification flow.
+
+Fix build errors.
+
+Fix runtime errors.
+
+Fix broken routes.
+
+Fix API errors.
+
+Fix database errors.
+
+Fix responsive issues.
+
+Do not stop at mockups.
+
+Do not leave important buttons non-functional.
+
+Do not create fake integrations.
+
+Do not create fake statistics.
+
+Do not create fake AI responses.
+
+Do not claim government integration that does not exist.
+
+The final result must feel like ONE REAL PRODUCT, not a collection of unrelated pages.
+
+FINAL PRODUCT PRINCIPLE:
+
+"INDIAN SAATHI AI does not replace the government.
+It reduces the friction between a citizen's problem and the resolver responsible for addressing it."
+
+Build the complete working application now.
